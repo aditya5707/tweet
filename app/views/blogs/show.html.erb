@@ -1,0 +1,47 @@
+<p>
+  <b>Name:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @user.blog_title %>
+</p>
+
+<p>
+  <b>Post:</b>
+  <%= @user.content %>
+</p>
+
+
+<h2>Comments</h2>
+ <% @user.comments.each do |i|	  %>
+    <%= i.username%> <b> Says </b>  <%= i.content %>
+    <%= link_to "Delete this comment",i, :method => "delete" %> </br>
+<% end %>
+
+
+<h2>Add your comment:</h2>
+
+<%= form_for(@user, :url =>  create_comment_blog_path(@user)) do |f| %>
+    <%=f.fields_for @comment do |c| %>
+
+  <div>
+    <%= c.label :Username %>
+    <%= c.text_field :username %>
+  </div>
+
+  <div >
+    <%= c.label :Content %>
+    <%= c.text_field :content %>
+  </div>
+<% end %>
+
+ <div>
+   <%=	f.submit  %>
+
+
+ </div>
+
+ 
+<% end %>

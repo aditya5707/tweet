@@ -1,0 +1,18 @@
+<%= form_for @user ,:url =>  blogs_path ,:method => 'post' do |f| %>
+
+  <div>
+    <%= f.label :name, "Enter your name" %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :title %><br />
+    <%= f.text_field :blog_title %>
+  </div>
+  <div>
+    <%= f.label :content, "Upload your post below" %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div>
+    <%= f.submit value="Click here to Post" %>
+  </div>
+<% end %>
