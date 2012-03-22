@@ -14,33 +14,29 @@
 </p>
 
 
-<h2>Comments</h2>
- <% @user.comments.each do |i|	  %>
-    <%= i.username%> <b> Says </b>  <%= i.content %>
-    <%= link_to "Delete this comment",i, :method => "delete" %> </br>
-<% end %>
-
 
 <h2>Add your comment:</h2>
+<div id="show_comment">
+  <%= render :partial=> 'comment' %>
+</div>
 
 <%= form_for(@user, :url =>  create_comment_blog_path(@user)) do |f| %>
-    <%=f.fields_for @comment do |c| %>
 
-  <div>
+    <%=f.fields_for @comments do |c| %>
+
+  <div id="username">
     <%= c.label :Username %>
     <%= c.text_field :username %>
   </div>
 
-  <div >
+  <div id="content">
     <%= c.label :Content %>
     <%= c.text_field :content %>
   </div>
 <% end %>
 
- <div>
+ <div id="submit_comment">
    <%=	f.submit  %>
-
-
  </div>
 
  

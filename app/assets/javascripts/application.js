@@ -12,4 +12,41 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_t$
+
+$(document).ready(function(){
+    var url =  location.href;
+
+   $("#submit_comment").click(function(event)
+   {
+       event.preventDefault()
+    //   var url =  location.href
+       //event.preventDefault();
+
+        var username = $("#username input").val();
+        var comment = $("#content input").val();
+      
+        //alert(url);
+        //alert(username);
+       
+       $.get(url,{ "username":username,"comment":comment})
+
+
+
+
+   });
+
+
+$(".deleteComment").click(function(event){
+
+//    $(this).parent("li").hide();
+    event.preventDefault();
+//    var url = location.href;
+    var v = $("#comment_id").innerHTML;
+//    $.get("/comments",{"user":" ","comment":" "})
+    alert(v);
+
+});
+    
+
+});

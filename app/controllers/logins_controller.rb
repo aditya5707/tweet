@@ -3,6 +3,7 @@ class LoginsController < ApplicationController
   
   def new
     @login = Blogger.new
+     
   end
 
   def index

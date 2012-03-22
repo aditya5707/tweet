@@ -1,0 +1,12 @@
+
+<% (@comments).each do |i| %>
+<li class="commentElement">
+    <%= i.username%> <b> Says </b>  <%= i.content %>
+    <%= link_to "Delete this comment", i, :method => "delete", :remote => true, :class => "deleteComment"  %> </br>
+  <div id="comment_id">
+    <%= i.id %>
+</div>
+
+</li>
+
+<% end %>

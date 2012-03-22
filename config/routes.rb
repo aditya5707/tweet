@@ -37,11 +37,13 @@ Tweet::Application.routes.draw do
     end
   end
 
-    resources :comments 
+    resources :comments#, :bloggers
     
 
 
-  devise_for :bloggers
+devise_for :bloggers#, :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
+#devise_scope :blogger do
+#end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -14,16 +14,23 @@ class CommentsController < ApplicationController
 
 
  def create
+   logger.info "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@kjsfhsdjkfhjksdhfjksdhjkfhsdjkfhsdjkfhjksdhfjksdhfjksdhfjkh"
+
     @user = Blogg.find(params[:blogg_id])
     @comment = @user.comments.create(params[:content])
     redirect_to blog_path(@user)
   end
 
    def destroy
-      logger.info "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@222222222222222222222222222222221111111"
+      logger.info "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
       @comment = Comment.find(params[:id])
      @comment.destroy
+      respond_to do |format|
+        format.js
+        format.html
+      end
      redirect_to blogs_path
+
    end
 
 
